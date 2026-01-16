@@ -1,11 +1,16 @@
 {
   "name": "buildforce",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "npm -w apps/web run dev",
     "build": "npm -w apps/web run build",
     "lint": "npm -w apps/web run lint",
-    "typecheck": "npm -w apps/web run typecheck"
+    "typecheck": "npm -w apps/web run typecheck",
+    "check": "npm run lint && npm run typecheck",
+    "workflow:done": "npm run check && npm run prd:sync"
   }
 }
