@@ -1,0 +1,11 @@
+{
+  "name": "buildforce",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "npm -w apps/web run dev",
+    "build": "npm -w apps/web run build",
+    "lint": "npm -w apps/web run lint",
+    "typecheck": "npm -w apps/web run typecheck"
+  }
+}
