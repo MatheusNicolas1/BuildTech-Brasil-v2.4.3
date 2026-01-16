@@ -179,11 +179,11 @@ Sem mapas, sem GPS, sem integração externa.
 ---
 
 ### Milestone 0 — Base Técnica e Qualidade
-- [ ] Criar monorepo
-- [ ] Configurar TypeScript strict
-- [ ] Configurar ESLint
-- [ ] Scripts: dev, build, lint, typecheck
-- [ ] Convenções de código documentadas
+- [x] Criar monorepo
+- [x] Configurar TypeScript strict
+- [x] Configurar ESLint
+- [x] Scripts: dev, build, lint, typecheck
+- [x] Convenções de código documentadas
 
 ---
 
