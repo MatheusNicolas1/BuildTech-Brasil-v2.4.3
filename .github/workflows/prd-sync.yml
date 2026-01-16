@@ -1,0 +1,41 @@
+﻿name: PRD Sync
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  prd_sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run PRD sync
+        run: npm run prd:sync
+
+      - name: Commit and push if changed
+        run: |
+          git status --porcelain
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add docs/PRD.md
+            git commit -m "docs(prd): sync from repo state"
+            git push
+          else
+            echo "No changes to commit."
+          fi
