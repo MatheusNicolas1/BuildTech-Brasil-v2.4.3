@@ -2,15 +2,18 @@
 
 on:
   workflow_dispatch: {}
+  push:
+    branches: [ "master" ]
 
 permissions:
   contents: write
 
 jobs:
   prd_sync:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout (full history)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -29,7 +32,6 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git status --porcelain
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
