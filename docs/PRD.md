@@ -188,11 +188,11 @@ Sem mapas, sem GPS, sem integração externa.
 ---
 
 ### Milestone 1 — Banco de Dados e Integridade
-- [ ] Configurar PostgreSQL
-- [ ] Configurar ORM
-- [ ] Criar migrations iniciais
-- [ ] Criar seeds básicos
-- [ ] Criar camada de acesso a dados tipada
+- [x] Configurar PostgreSQL
+- [x] Configurar ORM
+- [x] Criar migrations iniciais
+- [x] Criar seeds básicos
+- [x] Criar camada de acesso a dados tipada
 
 ---
 
